@@ -2,10 +2,11 @@ import { gql, useQuery } from "@apollo/client";
 import { useParams } from "react-router-dom";
 
 const GET_MOVIE = gql`
-  query getMovie($movieId: String!) {
+  query getMovie($movieId: ID!) {
     movie(id: $movieId) {
       id
       title
+      small_cover_image
     }
   }
 `;

@@ -7,13 +7,6 @@ const ALL_MOVIES = gql`
       title
       id
     }
-    allTweets {
-      id
-      text
-      author {
-        fullName
-      }
-    }
   }
 `;
 
