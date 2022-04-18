@@ -9,6 +9,7 @@ const GET_MOVIE = gql`
       title
       medium_cover_image
       rating
+      isLiked @client
     }
   }
 `;
@@ -38,10 +39,6 @@ const Subtitle = styled.h4`
   margin-bottom: 10px;
 `;
 
-const Description = styled.p`
-  font-size: 28px;
-`;
-
 const Image = styled.div`
   width: 25%;
   height: 60%;
@@ -64,6 +61,7 @@ export default function Movie() {
       <Column>
         <Title>{loading ? "Loading..." : `${data.movie?.title}`}</Title>
         <Subtitle>⭐️ {data?.movie?.rating}</Subtitle>
+        <button>{data?.movie?.isLiked ? "Unlike" : "Like"}</button>
       </Column>
       <Image bg={data?.movie?.medium_cover_image} />
     </Container>
